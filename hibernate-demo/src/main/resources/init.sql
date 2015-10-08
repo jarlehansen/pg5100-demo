@@ -1,0 +1,1 @@
+insert into Customer(id, age, firstName, lastName) values(123, 20, 'Ola', 'Nordmann');
