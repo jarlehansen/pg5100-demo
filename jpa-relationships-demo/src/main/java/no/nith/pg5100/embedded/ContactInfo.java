@@ -1,8 +1,5 @@
 package no.nith.pg5100.embedded;
 
-import javax.persistence.Embeddable;
-
-@Embeddable
 public class ContactInfo {
     private String phoneNumber;
 
