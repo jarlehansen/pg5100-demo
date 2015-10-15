@@ -1,9 +1,17 @@
 package no.nith.pg5100.one_to_one;
 
+import javax.persistence.*;
+
+@Entity
 public class Customer {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String firstName;
     private String lastName;
+
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "ADR_ID")
     private Address address;
 
     public int getId() {

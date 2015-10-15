@@ -1,8 +1,15 @@
 package no.nith.pg5100.embedded;
 
+import javax.persistence.*;
+
+@Entity
 public class Person {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
+
+    @Embedded
     private ContactInfo contactInfo;
 
     public int getId() {

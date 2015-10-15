@@ -1,10 +1,16 @@
 package no.nith.pg5100.many_to_many;
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
 public class Artist {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
+
+    @ManyToMany(mappedBy = "artists")
     private List<Album> albums;
 
     public int getId() {
