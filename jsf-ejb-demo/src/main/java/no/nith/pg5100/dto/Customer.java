@@ -1,16 +1,24 @@
 package no.nith.pg5100.dto;
 
+import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
+@Entity
+@NamedQuery(name = "Customer.getAll", query = "select c from Customer c")
 public class Customer {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @NotNull
     private String name;
     @NotNull
     @Pattern(regexp = "^\\S+@\\S+\\.\\S+$")
     private String email;
+
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "FK_ADDRESS_ID")
     @Valid
     private Address address;
 
