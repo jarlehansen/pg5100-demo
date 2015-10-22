@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:head>
+</h:head>
+<h:body>
+    <h:form>
+       <h:outputLabel value="Name: "/>
+        <h:inputText value="#{customerController.customer.name}" />
+        <br/>
+        <h:outputLabel value="Email: "/>
+        <h:inputText value="#{customerController.customer.email}"/>
+        <br/>
+        <h:outputLabel value="Street: "/>
+        <h:inputText value="#{customerController.customer.address.street}" />
+        <br/>
+        <h:outputLabel value="City: "/>
+        <h:inputText value="#{customerController.customer.address.city}"/>
+        <br/>
+        <h:commandButton value="Save" action="#{customerController.persist()}"/>
+    </h:form>
+    <hr/>
+    <h2>Registered customers</h2>
+    <ul>
+        <c:forEach var="customer" items="#{customerController.getAll()}">
+            <li><h:outputText value="#{customer}" /></li>
+        </c:forEach>
+    </ul>
+</h:body>
+</html>
