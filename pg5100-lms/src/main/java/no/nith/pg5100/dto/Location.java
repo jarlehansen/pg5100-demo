@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
+@NamedQuery(name = "Location.getAll", query = "select l from Location l")
 @SequenceGenerator(name = "SEQ_LOCATION", initialValue = 50)
 public class Location {
     @Id
