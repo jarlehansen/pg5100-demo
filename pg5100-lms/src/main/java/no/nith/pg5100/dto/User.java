@@ -2,10 +2,15 @@ package no.nith.pg5100.dto;
 
 import no.nith.pg5100.dto.constraint.ValidPassword;
 
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
+@Entity
+@SequenceGenerator(name = "SEQ_USER", initialValue = 50)
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_USER")
     private int id;
 
     @NotNull
