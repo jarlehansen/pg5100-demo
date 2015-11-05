@@ -4,6 +4,7 @@ import no.nith.pg5100.dto.User;
 import no.nith.pg5100.dto.UserType;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import javax.persistence.EntityManager;
@@ -89,6 +90,7 @@ public class JpaUserDaoIT {
     }
 
     @Test
+    @Ignore
     public void remove() throws Exception {
         User user = userDao.findById(1);
 

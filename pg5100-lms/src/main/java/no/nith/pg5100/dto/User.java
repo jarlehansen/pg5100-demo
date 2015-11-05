@@ -5,6 +5,7 @@ import no.nith.pg5100.dto.constraint.ValidPassword;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import java.util.List;
 
 @Entity
 @NamedQuery(name = "User.getAll", query = "select u from User u")
@@ -24,6 +25,9 @@ public class User {
 
     @Enumerated(EnumType.STRING)
     private UserType userType;
+
+    @ManyToMany(mappedBy = "users", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE}, fetch = FetchType.EAGER)
+    private List<Subject> subjects;
 
     public int getId() {
         return id;
@@ -55,5 +59,13 @@ public class User {
 
     public void setUserType(UserType userType) {
         this.userType = userType;
+    }
+
+    public List<Subject> getSubjects() {
+        return subjects;
+    }
+
+    public void setSubjects(List<Subject> subjects) {
+        this.subjects = subjects;
     }
 }
