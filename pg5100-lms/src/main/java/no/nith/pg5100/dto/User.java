@@ -7,6 +7,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 @Entity
+@NamedQuery(name = "User.getAll", query = "select u from User u")
 @SequenceGenerator(name = "SEQ_USER", initialValue = 50)
 public class User {
     @Id
@@ -21,6 +22,7 @@ public class User {
     @ValidPassword
     private String password;
 
+    @Enumerated(EnumType.STRING)
     private UserType userType;
 
     public int getId() {
