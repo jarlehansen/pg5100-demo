@@ -2,11 +2,13 @@ package no.nith.pg5100.infrastructure.subject;
 
 import no.nith.pg5100.dto.Subject;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
+@Stateless
 public class JpaSubjectDao implements SubjectDao {
 
     @PersistenceContext(unitName = "pg5100-lms")

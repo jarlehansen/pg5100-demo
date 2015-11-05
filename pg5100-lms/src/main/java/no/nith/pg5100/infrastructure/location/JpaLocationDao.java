@@ -2,12 +2,13 @@ package no.nith.pg5100.infrastructure.location;
 
 import no.nith.pg5100.dto.Location;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
+@Stateless
 public class JpaLocationDao implements LocationDao {
 
     @PersistenceContext(unitName = "pg5100-lms")
