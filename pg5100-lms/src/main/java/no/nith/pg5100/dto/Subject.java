@@ -18,7 +18,7 @@ public class Subject {
     private String name;
 
     @Size(min = 0, max = 100)
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE}, fetch = FetchType.EAGER)
     @JoinTable(name = "USR_SUB")
     private List<User> users;
 
