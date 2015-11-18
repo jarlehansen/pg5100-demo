@@ -55,7 +55,7 @@ public class JpaUserDaoIT {
     @Test
     public void getAll() throws Exception {
         List<User> users = userDao.getAll();
-        assertEquals(3, users.size());
+        assertEquals(4, users.size());
     }
 
     @Test
