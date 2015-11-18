@@ -18,11 +18,11 @@ public class Subject {
     private String name;
 
     @Size(min = 0, max = 100)
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE}, fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "USR_SUB")
     private List<User> users;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToOne
     @JoinColumn(name = "FK_LOCATION")
     @Valid
     private Location location;
