@@ -89,13 +89,13 @@ public class JpaUserDaoIT {
 
     @Test
     public void remove() throws Exception {
-        User user = userDao.findById(1);
+        User user = userDao.findById(4);
 
         entityManager.getTransaction().begin();
         boolean removed = userDao.remove(user);
         entityManager.getTransaction().commit();
 
-        User result = userDao.findById(1);
+        User result = userDao.findById(4);
         assertTrue(removed);
         assertNull(result);
     }
